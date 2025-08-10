@@ -1,4 +1,4 @@
-# git-file-syncer
+# git-file-sync
 
 A tool to sync specific files from a Git repository to local filesystem.
 
@@ -20,7 +20,7 @@ A tool to sync specific files from a Git repository to local filesystem.
 ### From source
 
 ```bash
-$ go install github.com/your-org/git-file-syncer@latest
+$ go install github.com/your-org/git-file-sync@latest
 ```
 
 ## Configuration
@@ -54,23 +54,23 @@ sshPrivateKeyPath: "/secrets/deploy_key"
 
 ```bash
 # Use default config.yaml in current directory
-git-file-syncer
+git-file-sync
 
 # Specify custom config file
-git-file-syncer -config=/path/to/config.yaml
+git-file-sync -config=/path/to/config.yaml
 
 # Enable verbose logging
-git-file-syncer -verbose
+git-file-sync -verbose
 ```
 
 ### Daemon mode
 
 ```bash
 # Run with default 60s interval
-git-file-syncer -daemon
+git-file-sync -daemon
 
 # Run with custom interval
-git-file-syncer -daemon -interval=5m
+git-file-sync -daemon -interval=5m
 ```
 
 ## Use Cases
@@ -127,7 +127,7 @@ Distribute static files to multiple locations:
    ```
 5. Run the syncer:
    ```bash
-   $ git-file-syncer -config=test-config.yaml -verbose
+   $ git-file-sync -config=test-config.yaml -verbose
    ```
 
 ## License

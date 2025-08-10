@@ -1,4 +1,4 @@
-module github.com/zinrai/git-file-syncer
+module github.com/zinrai/git-file-sync
 
 go 1.24.0
 
