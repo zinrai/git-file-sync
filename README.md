@@ -6,7 +6,6 @@ A tool to sync specific files from a Git repository to local filesystem.
 
 - Fetch specific files from a Git repository using commit hash
 - Support for SSH authentication with deploy keys
-- One-shot or daemon mode operation
 - YAML configuration file
 
 ## Requirements
@@ -50,8 +49,6 @@ sshPrivateKeyPath: "/secrets/deploy_key"
 
 ## Usage
 
-### One-shot mode (default)
-
 ```bash
 # Use default config.yaml in current directory
 git-file-sync
@@ -63,21 +60,11 @@ git-file-sync -config=/path/to/config.yaml
 git-file-sync -verbose
 ```
 
-### Daemon mode
-
-```bash
-# Run with default 60s interval
-git-file-sync -daemon
-
-# Run with custom interval
-git-file-sync -daemon -interval=5m
-```
-
 ## Use Cases
 
-### Container Sidecar
+### Container Init Container
 
-Use as a sidecar container to provide configuration files to your main application:
+Use as an init container to provide configuration files to your main application:
 
 - Deploy configuration files before application startup
 - Update configuration without rebuilding application images
