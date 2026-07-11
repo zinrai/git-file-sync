@@ -47,6 +47,8 @@ files:
 sshPrivateKeyPath: "/secrets/deploy_key"
 ```
 
+`destination` is the final path where the source is placed. When `source` is a directory, its contents are written directly under `destination` and the source directory name is not appended. A trailing slash does not change the behavior.
+
 ## Usage
 
 ```bash
