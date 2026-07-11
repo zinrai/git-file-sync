@@ -7,10 +7,17 @@ import (
 	"os"
 )
 
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
+
 func main() {
 	var (
-		configPath = flag.String("config", "config.yaml", "Path to configuration file")
-		verbose    = flag.Bool("verbose", false, "Enable verbose logging")
+		configPath  = flag.String("config", "config.yaml", "Path to configuration file")
+		verbose     = flag.Bool("verbose", false, "Enable verbose logging")
+		showVersion = flag.Bool("version", false, "Print version and exit")
 	)
 
 	flag.Usage = func() {
@@ -18,16 +25,14 @@ func main() {
 		fmt.Fprintf(os.Stderr, "git-file-sync - Sync files from Git repository\n\n")
 		fmt.Fprintf(os.Stderr, "Options:\n")
 		flag.PrintDefaults()
-		fmt.Fprintf(os.Stderr, "\nExamples:\n")
-		fmt.Fprintf(os.Stderr, "  # Run with default config.yaml in current directory\n")
-		fmt.Fprintf(os.Stderr, "  %s\n\n", os.Args[0])
-		fmt.Fprintf(os.Stderr, "  # Specify custom config file\n")
-		fmt.Fprintf(os.Stderr, "  %s -config=/path/to/config.yaml\n\n", os.Args[0])
-		fmt.Fprintf(os.Stderr, "  # Enable verbose logging\n")
-		fmt.Fprintf(os.Stderr, "  %s -verbose\n", os.Args[0])
 	}
 
 	flag.Parse()
+
+	if *showVersion {
+		fmt.Printf("git-file-sync %s (commit: %s, date: %s)\n", version, commit, date)
+		return
+	}
 
 	// Setup logger
 	logLevel := slog.LevelInfo
