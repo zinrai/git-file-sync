@@ -14,14 +14,6 @@ A tool to sync specific files from a Git repository to local filesystem.
 - SSH client installed
 - Read access to target Git repository
 
-## Installation
-
-### From source
-
-```bash
-$ go install github.com/your-org/git-file-sync@latest
-```
-
 ## Configuration
 
 Create a `config.yaml` file:
